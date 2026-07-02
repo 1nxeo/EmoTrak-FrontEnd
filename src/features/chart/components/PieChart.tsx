@@ -17,6 +17,7 @@ function PieChart({ graphData, month }: PropsData) {
       const percentArr = matchedData.graph.map((item) => item.percentage);
       setCountArr(percentArr);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphData, month]);
 
   return (

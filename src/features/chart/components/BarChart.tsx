@@ -15,6 +15,7 @@ const BarChart = ({ graphData, month }: PropsData) => {
       const numberArr = matchedData.graph.map((item) => item.count);
       setCountArr(numberArr);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphData, month]);
 
   return (

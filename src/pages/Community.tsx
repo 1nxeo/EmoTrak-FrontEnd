@@ -81,6 +81,7 @@ const Community = () => {
         clearTimeout(throttle);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasNextPage]);
 
   useEffect(() => {
@@ -93,6 +94,7 @@ const Community = () => {
     } else {
       setSearchParams({ ...searchParams });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emoNum]);
 
   return (

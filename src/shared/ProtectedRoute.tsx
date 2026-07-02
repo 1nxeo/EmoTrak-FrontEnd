@@ -34,6 +34,7 @@ export const ProtectedRoute = ({
     }
 
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refreshToken, pathname, admin]);
 
   return <>{children}</>;

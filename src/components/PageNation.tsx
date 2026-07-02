@@ -34,6 +34,7 @@ const PageNation = (props: IPageNation) => {
     } else {
       setPageArr([page - 2, page - 1, page, page + 1, page + 2]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (

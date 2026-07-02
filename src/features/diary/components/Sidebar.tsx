@@ -28,6 +28,7 @@ const Sidebar = ({ side, setSide, data, diaryDay }: Partial<DayProps>) => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

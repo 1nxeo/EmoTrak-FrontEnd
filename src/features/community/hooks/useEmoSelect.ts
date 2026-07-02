@@ -15,6 +15,7 @@ const useEmoSelect = (paramEmo: string | null) => {
 
   useEffect(() => {
     changeEmo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paramEmo]);
 
   const [emoNum, setEmoNum] = useState(paramEmo);

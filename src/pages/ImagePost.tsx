@@ -127,6 +127,7 @@ const ImagePost = () => {
       window.removeEventListener("popstate", preventGoBack);
       window.removeEventListener("beforeunload", preventClose);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [photo]);
 
   return (

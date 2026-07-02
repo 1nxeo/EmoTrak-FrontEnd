@@ -108,6 +108,7 @@ const ImageEdit = () => {
 
   useEffect(() => {
     preview(photo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [photo, exPhoto, dailyId]);
 
   return (

@@ -130,6 +130,7 @@ const Canvas = ({ isCanvas, canvasRef, validation }: CanvasProps) => {
 
       return mousefunc && mousefunc();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [mousePosition, isPainting, isErasing]
   );
 
@@ -166,6 +167,7 @@ const Canvas = ({ isCanvas, canvasRef, validation }: CanvasProps) => {
       clientY: touch?.clientY,
     });
     canvas.dispatchEvent(mouseEvent);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const moveTouch = useCallback((event: TouchEvent) => {
@@ -184,6 +186,7 @@ const Canvas = ({ isCanvas, canvasRef, validation }: CanvasProps) => {
     });
 
     canvas.dispatchEvent(mouseEvent);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const endTouch = useCallback((event: TouchEvent) => {
@@ -203,6 +206,7 @@ const Canvas = ({ isCanvas, canvasRef, validation }: CanvasProps) => {
     });
     canvas.dispatchEvent(mouseUpEvent);
     canvas.dispatchEvent(mouseLeaveEvent);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -228,6 +232,7 @@ const Canvas = ({ isCanvas, canvasRef, validation }: CanvasProps) => {
       canvas.removeEventListener("touchmove", moveTouch);
       canvas.removeEventListener("touchend", endTouch);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startPaint, paint, exitPaint, startErase, erase, exitErase]);
 
   return (

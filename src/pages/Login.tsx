@@ -1,7 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as URL from "../data/routes/urls";
-import { getCookie } from "../utils/cookies";
 import { scrollOnTop } from "../utils/scollOnTop";
 import InputList from "../components/InputList";
 import Button from "../components/Button";

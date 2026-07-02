@@ -53,6 +53,7 @@ const DrawEdit = () => {
         ctx?.drawImage(image, 0, 0, canvas.width, canvas.height); // 이미지 그리기
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
@@ -116,6 +117,7 @@ const DrawEdit = () => {
       window.removeEventListener("popstate", preventGoBack);
       window.removeEventListener("beforeunload", preventClose);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
