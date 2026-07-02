@@ -5,7 +5,9 @@ import {
   ADMIN,
   CHART_PAGE,
   COMMUNITY_PAGE,
+  DRAW_POST_PAGE,
   HOME_PAGE,
+  IMAGE_POST_PAGE,
   LOGIN_PAGE,
   MY_PAGE,
 } from "../data/routes/urls";
@@ -13,11 +15,14 @@ import EmoTrak from "../assets/logo/EmoTrakLogo.webp";
 import MobileMenubar from "./MobileMenubar";
 import * as St from "../layouts/LayoutStyle";
 import { logout } from "../utils/logout";
+import { today } from "../utils/today";
 
 const Header = () => {
   const navigate = useNavigate();
   const refreshToken = getCookie("refreshToken");
   const token = getCookie("token");
+  // 오늘 날짜로 일기 작성 페이지 이동 (라우트 파라미터 형식: 년-월-일)
+  const todayParam = `${today.year}-${today.month}-${today.date}`;
   const logoutUserHandler = () => {
     if (window.confirm("로그아웃하시겠습니까")) {
       logout();
@@ -54,7 +59,12 @@ const Header = () => {
             <St.PageButton onClick={() => navigate(COMMUNITY_PAGE)}>
               공유 페이지
             </St.PageButton>
-
+            <St.PageButton onClick={() => navigate(`${DRAW_POST_PAGE}/${todayParam}`)}>
+              그림일기 작성
+            </St.PageButton>
+            <St.PageButton onClick={() => navigate(`${IMAGE_POST_PAGE}/${todayParam}`)}>
+              사진일기 작성
+            </St.PageButton>
             <St.PageButton onClick={() => navigate(CHART_PAGE)}>
               차트 페이지
             </St.PageButton>
@@ -69,6 +79,12 @@ const Header = () => {
               공유 페이지
             </St.PageButton>
             <St.PageButton onClick={() => navigate(HOME_PAGE)}>달력 페이지</St.PageButton>
+            <St.PageButton onClick={() => navigate(`${DRAW_POST_PAGE}/${todayParam}`)}>
+              그림일기 작성
+            </St.PageButton>
+            <St.PageButton onClick={() => navigate(`${IMAGE_POST_PAGE}/${todayParam}`)}>
+              사진일기 작성
+            </St.PageButton>
             <St.PageButton onClick={() => navigate(CHART_PAGE)}>
               차트 페이지
             </St.PageButton>

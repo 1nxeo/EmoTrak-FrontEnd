@@ -1,24 +1,29 @@
 import { useNavigate } from "react-router-dom";
 import { BsCalendarHeart } from "react-icons/bs";
 import { VscGraph } from "react-icons/vsc";
-import { MdContentPaste } from "react-icons/md";
+import { MdContentPaste, MdBrush, MdPhotoCamera } from "react-icons/md";
 import { BsPersonFillGear } from "react-icons/bs";
 import { RiLoginBoxLine } from "react-icons/ri";
 import { GoThreeBars } from "react-icons/go";
 import {
   CHART_PAGE,
   COMMUNITY_PAGE,
+  DRAW_POST_PAGE,
   HOME_PAGE,
+  IMAGE_POST_PAGE,
   LOGIN_PAGE,
   MY_PAGE,
 } from "../data/routes/urls";
 import { getCookie } from "../utils/cookies";
+import { today } from "../utils/today";
 import * as UI from "../components/Modal";
 import * as St from "../layouts/LayoutStyle";
 
 const MobileMenubar = () => {
   const navigate = useNavigate();
   const refreshToken = getCookie("refreshToken");
+  // 오늘 날짜로 일기 작성 페이지 이동 (라우트 파라미터 형식: 년-월-일)
+  const todayParam = `${today.year}-${today.month}-${today.date}`;
 
   return (
     <St.MobileMenubarWrapper>
@@ -41,6 +46,18 @@ const MobileMenubar = () => {
                   <St.SelectButton onClick={() => navigate(CHART_PAGE)}>
                     <VscGraph />
                     <St.SelectText>차트</St.SelectText>
+                  </St.SelectButton>
+                  <St.SelectButton
+                    onClick={() => navigate(`${DRAW_POST_PAGE}/${todayParam}`)}
+                  >
+                    <MdBrush />
+                    <St.SelectText>그림일기</St.SelectText>
+                  </St.SelectButton>
+                  <St.SelectButton
+                    onClick={() => navigate(`${IMAGE_POST_PAGE}/${todayParam}`)}
+                  >
+                    <MdPhotoCamera />
+                    <St.SelectText>사진일기</St.SelectText>
                   </St.SelectButton>
                   <St.SelectButton onClick={() => navigate(COMMUNITY_PAGE)}>
                     <MdContentPaste />
